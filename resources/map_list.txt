@@ -1,0 +1,42 @@
+UFDA Maps
+
+2008:
+Constraints
+Est Net Density
+Entited Lots
+Dev Lands
+Scenarios -- T-Plan
+Suitability:
+	Water Line Access
+	City Sewer Access
+	Access to Roads
+	"" Transit
+	City Fire Service
+	Prime Soils and Open Space
+	Sensitive Lands
+	Key Wildlife Habitat
+	Combined Model (and with Constrained Land)
+Scenario D: Staff Recs
+	< All Nhoods >
+
+2011:
+Res Dev Allocation
+New Dwelling Units Permitted
+Entitled Lots
+Entitled Lots and Potential Units by Zoning
+Annexations
+Projected Road Congestion -- from T-Plan 2011
+New Road Infra
+New Bike Infra
+New Sewer Infra
+New & Repaired Water Mains
+New Parks & Conservation
+Sensitive Lands and Resources
+Prime* Ag Soils
+Critical Wildlife Habitat
+
+
+Ideas:
+Greenprint
+Rural Reserve/Preserve
+Dev Priorities -- Dev Lands Ranked
