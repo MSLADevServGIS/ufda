@@ -1,0 +1,24 @@
+Global Styles:
+Fonts:
+Titles:			Calisto
+Everything else:	TW Cen Mt
+
+
+
+Print Settings:
+Sh*tty MF print settings:
+Bleed top: 0.2 in
+Bleed inside: 0.25 in
+Centered
+-- BUT, this only works for the right-hand page when printing a spread
+Spreads are required for page numbering and a nice TOC
+
+
+Maps:
+Use the 8.5x8.5 Map Template located here:
+\\cityfiles\DEVServices\WallyG\Templates
+
+
+
+Title Page:
+A nice, topo-style map of Missoula?

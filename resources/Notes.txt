@@ -1,0 +1,12 @@
+Population growth per year
+
+New dwelling units by next 30 years
+
+New Units in 2015
+City: 1637
+Cnty: 144
+
+Note: The URSA has been updated to match the extent of the Our Missoula Growth Policy 2035 boundary
+This results in an additional 5,542.4 acres (URSA gen: 34711.6; WWSA: 33504.44; GP: 40254) of primarily
+Open and Resource and Parks and Open Lands land use designations.
+
