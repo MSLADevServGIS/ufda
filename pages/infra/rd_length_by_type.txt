@@ -1,0 +1,5 @@
+gisrep_SDE_Streets_OBJECTID,Type,Cnt_Type,Sum_Length
+-1,chipseal,93,38853.857000000004000
+-1,new,5,2891.652999999999800
+-1,overlay,27,12959.695000000003000
+-1,reconstruction,2,3192.280999999999900

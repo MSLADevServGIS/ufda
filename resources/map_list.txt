@@ -1,6 +1,6 @@
 UFDA Maps
 
-2008:
+2007 Yearbook:
 Constraints
 Est Net Density
 Entited Lots
@@ -19,7 +19,26 @@ Suitability:
 Scenario D: Staff Recs
 	< All Nhoods >
 
-2011:
+
+2008 Yearbook:
+(Intro)
+Res Allocation
+New Dev
+Ent Lots
+Res Allocation update
+Annexations
+New Road
+Alt Trans Update
+Projected Conjestion
+Parks & Conservation
+Sewer Mains
+Water Mains
+Sensitive Lands
+Crit Wildlife Habitat
+Prime Ag Soils
+
+
+2011 Yearbook:
 Res Dev Allocation
 New Dwelling Units Permitted
 Entitled Lots
@@ -27,13 +46,68 @@ Entitled Lots and Potential Units by Zoning
 Annexations
 Projected Road Congestion -- from T-Plan 2011
 New Road Infra
-New Bike Infra
 New Sewer Infra
 New & Repaired Water Mains
+Transit/Bikes
 New Parks & Conservation
 Sensitive Lands and Resources
-Prime* Ag Soils
+Prime Ag Soils
 Critical Wildlife Habitat
+
+
+2012 Yearbook:
+<no cover> (Intro with overview)
+Building Permits, (summary on Subdivisions, Annexations)
+Parks & Conservation Easements
+Crit Resources
+Transportation
+Bike/Ped Facilities
+Infrastructure (sewer, water, sidewalks)
+Subdivisions, permits (2-pages)
+Graphs
+Projects & Future Dev
+Comparision (built vs. ent)
+Res Allocation
+
+
+2013 Presentation:
+Study Area metrics
+New Construction (graph, over 7 years)
+"" Average
+New Construction (res)
+Wastewater
+Bike/Ped Infrastructure -- they call it infrastructure
+Parks & Open Space -- not "Conserv Easements"
+Subdivisions
+Ent Lots
+Subdiv Report
+All permitted dev
+Summary
+Res Allocation
+
+
+2015 Yearbook Concept:
+Cover (with cartographic topomap)
+TOC
+Introduction & Glossary
+<IDEA: Updates and Recap of previous dev>
+(SECTION: Open Land, Protected Areas, and Development Constraints)
+Parks & Conservation Easements
+<IDEA: Greenprint, Rural Preserve/Reserve>
+Wildlife Habitat
+<? Development Constraints: Floodplain, Riparian, Slopes, etc>
+(SECTION: Infrastructure)
+New/Repaired Road Infrastructure
+<REMOVE: conjestion>
+New Bike/Ped Facilities <sidewalks>
+<? Misc Transportation info>
+New/Repaired Water/Sewer Infrastructure
+(SECTION: Development)
+New Residential Units <graph amount per type>
+Subdivisions
+Entitled Lot Update
+<IDEA: Heatmap/geographic center of 3-years of previous development (is it in the core?)>
+Res Allocation 
 
 
 Ideas:

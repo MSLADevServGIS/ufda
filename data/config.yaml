@@ -1,0 +1,9 @@
+conserv_easements:
+  out_name:
+    conserv_easements{filetype}
+  in_features:
+    Database Connections\CountyGIS.sde\MCGIS.SDE.LandUsePlanning\MCGIS.SDE.ConservationEasements
+  out_path:
+    {out_path}
+  where_clause:
+    BCCApprovalDate LIKE '{year}%'
