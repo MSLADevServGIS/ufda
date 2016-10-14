@@ -1,0 +1,24 @@
+CREATE TABLE all2015 AS SELECT permit_number, dwellings 
+FROM (
+ SELECT permit_number, dwellings 
+ FROM res2015 
+ GROUP BY permit_number 
+ UNION ALL 
+ SELECT permit_number, dwellings 
+ FROM res2015_cnty 
+ GROUP BY permit_number);
+
+SELECT AddGeometryColumn('all2015', 'geometry', 2256, 'MULTIPOINT', 'XY');
+
+
+UPDATE all2015 
+SET geometry = (
+ SELECT geometry FROM res2015 r WHERE r.permit_number = all2015.permit_number) 
+WHERE geometry IS NULL;
+
+UPDATE all2015 
+SET geometry = (
+ SELECT geometry FROM res2015_cnty r WHERE r.permit_number = all2015.permit_number) 
+WHERE geometry IS NULL;
+
+SELECT ExportShp('all2015', 'geometry', 'all2015', 'UTF-8');

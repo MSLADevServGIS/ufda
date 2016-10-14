@@ -1,0 +1,99 @@
+# Data setup
+arcpy.FeatureClassToFeatureClass_conversion(streets, conn.path, "Streets")
+arcpy.FeatureClassToFeatureClass_conversion(annex, conn.path, "Annexations")
+arcpy.FeatureClassToFeatureClass_conversion(deannex, conn.path, "DeAnnexations")
+
+arcpy.Merge_management([r"Database Connections\gisrep.sde\gisrep.SDE.SanitarySewer\gisrep.SDE.ssPressurizedMain", r"Database Connections\gisrep.sde\gisrep.SDE.SanitarySewer\gisrep.SDE.ssGravityMain"], conn.path + "/sewers")
+
+# Produces SQLError no field 'Shape' on sewers
+for table in conn.get_tables():
+    dslw.utils.normalize_table(conn, table, 102700)
+
+dslw.csv2lite(conn, r"\\cityfiles\DEVServices\WallyG\projects\UFDA\data\2015_Asphalt.csv", "asphalt", add_id=False)
+
+# Definition query
+# http://gis.stackexchange.com/questions/90736
+lyr.definitionQuery = '"YEAR" LIKE ' + "'2015%'"  # could be useful
+
+
+# ROAD MAINTENANCE
+
+# Length by type
+cur.execute(
+"SELECT ROUND(SUM(ST_Length(s.geometry))/5280, 2) AS Road_Length, a.type AS Project_Type "
+"FROM streets s "
+"JOIN asphalt a ON s.facilityid = a.street_segment "
+"GROUP BY a.type "
+"ORDER BY Project_Type, Road_Length;"
+)
+
+p = dslw.utils.fetch_as_prettytable(cur)
+print(p)
+
+# Length by region name
+# Double counts segments in two regions?
+cur.execute(
+"SELECT ROUND(SUM(ST_Length(s.geometry))/5280, 2) AS Road_Length, u.nhood_name AS Region "
+"FROM streets s "
+"JOIN asphalt a ON s.facilityid = a.street_segment "
+"JOIN ufda_regions u ON Intersects(s.geometry, u.geometry) "
+"GROUP BY u.nhood_name "
+"ORDER BY Road_Length;"
+)
+
+p = dslw.utils.fetch_as_prettytable(cur)
+# cur.execute again
+df = dslw.utils.fetch_as_dataframe(cur)
+pt = df.plot(y='Road_Length', figsize=(5,5), labels=df["Project_Type"], kind='pie', legend=False).figure
+pt.savefig('/reports/roads.png')
+print(p)
+
+
+# UFDA STUDY AREA
+cur.execute(
+"SELECT ROUND(SUM(ST_AREA(geometry))/43560.0, 2) "
+"FROM ufda_regions").fetchall()
+
+
+# ANNEXATION
+
+# Annexation
+cur.execute(
+"SELECT ROUND(SUM(ST_Area(a.geometry)/43560.0), 2) AS Acres, u.nhood_name AS Region "
+"FROM annexations a "
+"JOIN ufda_regions u "
+"ON INTERSECTS(a.geometry, u.geometry) "
+"WHERE year_ LIKE '2015%' "
+"GROUP BY u.nhood_name;")
+
+cur.execute(
+"SELECT ROUND(SUM(ST_AREA(geometry)), 2)/43560.0 "
+"FROM annexations WHERE year_ < 2016").fetchall()  # year + 1
+
+# Deannexation
+SELECT ROUND(SUM(ST_Area(geometry)/43560.0), 2) FROM deannexations WHERE year LIKE '2015%';
+
+
+# UNITS
+# Total
+all_units = sum([i[0] for i in cur.execute(
+    "SELECT SUM(sum_dwellings) "
+    "FROM density2015 "
+    "UNION "
+    "SELECT SUM(sum_dwellings) "
+    "FROM density2015_cnty").fetchall()])
+
+# By region
+cur.execute(
+    "SELECT SUM(sum_dwellings) AS Units, u.nhood_name AS Region FROM ("
+    "  SELECT sum_dwellings, geometry "
+    "  FROM density2015 "
+    "  UNION "
+    "  SELECT sum_dwellings, geometry "
+    "  FROM density2015_cnty) d "
+    "JOIN ufda_regions u "
+    "ON INTERSECTS(d.geometry, u.geometry) "
+    "GROUP BY u.nhood_name "
+    "ORDER BY Units")
+ddf = dslw.utils.fetch_as_dataframe(cur)
+

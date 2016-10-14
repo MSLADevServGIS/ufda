@@ -7,3 +7,53 @@ conserv_easements:
     {out_path}
   where_clause:
     BCCApprovalDate LIKE '{year}%'
+
+psewers:
+  out_name:
+    psewers{filetype}
+  in_features:
+    Database Connections\gisrep.sde\gisrep.SDE.SanitarySewer\gisrep.SDE.ssPressurizedMain
+  out_path:
+    {out_path}
+  where_clause:
+    YRBUILT LIKE '{year}%'
+
+gsewers:
+  out_name:
+    gsewers{filetype}
+  in_features:
+    Database Connections\gisrep.sde\gisrep.SDE.SanitarySewer\gisrep.SDE.ssGravityMain
+  out_path:
+    {out_path}
+  where_clause:
+    YRBUILT LIKE '{year}%'
+
+annexations:
+  out_name:
+    annexations{filetype}
+  in_features:
+    C:\DATA\SDEClone.gdb\MtStPlane\Annexations
+  out_path:
+    {out_path}
+  where_clause:
+    YEAR_ LIKE '{year}%'
+
+deannexations:
+  out_name:
+    deannexations{filetype}
+  in_features:
+    C:\DATA\SDEClone.gdb\MtStPlane\DeAnnexations
+  out_path:
+    {out_path}
+  where_clause:
+    YEAR LIKE '{year}%'
+
+streets:
+  out_name:
+    streets{filetype}
+  in_features:
+    C:\DATA\SDEClone.gdb\MtStPlane\Streets
+  out_path:
+    {out_path}
+  where_clause:
+    
